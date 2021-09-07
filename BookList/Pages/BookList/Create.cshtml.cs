@@ -19,5 +19,21 @@ namespace BookList.Pages.BookList
         public void OnGet()
         {
         }
+
+        public async Task<IActionResult> OnPost() //We use IActionResult because we'll be rediredcting to a new page
+        {
+            if (ModelState.IsValid)
+            {
+                await _db.Book.AddAsync(Book); //Add book to a queue
+                await _db.SaveChangesAsync(); //Save changes and pushes them to the database
+                return RedirectToPage("Index"); //Redirect to index page when finished
+            }
+            else
+            {
+                return Page();
+            }
+        }
+            
+            
     }
 }

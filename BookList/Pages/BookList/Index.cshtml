@@ -41,7 +41,8 @@
                         </td>
                         <td>
                             <button class="btn btn-danger btn-sm">Delete</button>
-                            <a class="btn btn-success btn-sm">Edit</a>
+                            <a asp-page="Edit" asp-route-id="@item.Id" class="btn btn-success btn-sm">Edit</a>
+                            <!-- asp-route-id will route to the specified page(Edit) and pass the item ID as a parameter-->
                         </td>
                     </tr>
                     }
