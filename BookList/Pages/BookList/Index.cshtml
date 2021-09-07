@@ -40,7 +40,7 @@
                             @Html.DisplayFor(m => item.ISBN) <!--HTML helper format-->
                         </td>
                         <td>
-                            <button class="btn btn-danger btn-sm">Delete</button>
+                            <button asp-page-handler="Delete" asp-rout-id="@item.Id" onclick="return confirm('Are you sure you want to delete this?')" class="btn btn-danger btn-sm">Delete</button>
                             <a asp-page="Edit" asp-route-id="@item.Id" class="btn btn-success btn-sm">Edit</a>
                             <!-- asp-route-id will route to the specified page(Edit) and pass the item ID as a parameter-->
                         </td>
